@@ -32,17 +32,18 @@ public class SentimentAnalysis {
 
         if (sentiment.equalsIgnoreCase("Negative")) {
             System.out.println("Sentiment is Negative.");
+            if (containBlockedWord(wordList, text, sentiment)) {
+                System.out.println("Negative Sentiment does include blocked word.");
+            } else if (!containBlockedWord(wordList, text, sentiment)) {
+                System.out.println("Negative Sentiment does not include blocked word.");
+            }
         } else if (sentiment.equalsIgnoreCase("Positive")) {
             System.out.println("Sentiment is Positive.");
         } else if (sentiment.equalsIgnoreCase("Neutral")) {
             System.out.println("Sentiment is Neutral.");
         }
 
-        if (containBlockedWord(wordList, text, sentiment) == true) {
-            System.out.println("Negative Sentiment does include blocked word.");
-        } else if (containBlockedWord(wordList, text, sentiment) == false) {
-            System.out.println("Negative Sentiment does not include blocked word.");
-        }
+
 
     }
 
